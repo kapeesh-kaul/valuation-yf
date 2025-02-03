@@ -11,7 +11,5 @@ income_statement = income_statement.infer_objects()
 income_statement['Year'] = income_statement.index.year
 
 
-print(
-    income_statement[['Year', 'Total Revenue', 'Net Income', 'EBITDA']].
-    where(income_statement['Year'] == 2023).dropna()
-)
+ebitda_2023 = float(income_statement.query('Year == 2023')['EBITDA'].dropna())
+print(ebitda_2023)
